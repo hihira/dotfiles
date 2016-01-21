@@ -1,0 +1,23 @@
+# .bash_profile
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+  echo 'loaded brew bash_completion'
+fi
+
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+  echo 'loaded brew git-completion.bash'
+fi
+
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
+  . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+  echo 'loaded brew git-prompt.sh'
+fi
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+export PATH="$HOME/local/bin:$HOME/bin:$(brew --prefix)/bin:/usr/local/sbin:$(brew --prefix homebrew/php/php55)/bin:/usr/local/heroku/bin:$HOME/Library/Android/sdk/platform-tools/:/usr/local/bin:$PATH"

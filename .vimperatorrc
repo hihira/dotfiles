@@ -1,0 +1,64 @@
+"3.8.1 (created: 2013/11/21 23:49:14)
+
+source! ~/.vimperatorrc.local
+
+" vim: set ft=vimperator:
+
+" h/lでタブ移動
+map h <C-p>
+map l <C-n>
+
+" ヒントモードでアルファベットを使う
+set hintchars=ifjklasdhguonmerwc
+" ヒントモードのfontサイズを大きくする
+hi Hint z-index:5000; font-family:Menlo; font-size:14px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute;
+
+"" hatenabookmark
+" https://github.com/hatena/hatena-bookmark-xul/wiki/Vimperator-%E3%81%A7%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E6%8B%A1%E5%BC%B5%E3%82%92%E4%BD%BF%E3%81%86
+javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+
+" IME control
+:style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+javascript <<EOF
+// キーボードショートカットの指定
+// 空(null)を指定すれば hints や nnoremap を上書きしなくなる
+// (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
+liberator.globalVariables.hBookmark_shortcuts = {
+  hintsAdd : 'c',
+  hintsComment : 'C',
+  add : ['c'],
+  comment : ['C'],
+};
+
+// コマンドの設定
+// ここから下の設定は、はてなブックマーク拡張のバージョン 1.2.4a1 以降で有効です。
+liberator.globalVariables.hBookmark_commands = {
+  hbsearch : 'hb[search]',
+  hbsearch_tab : 'hbt[absearch]',
+  hbsearch_comment : 'hbc[omment]',
+  hbsearch_comment_tab : 'hbtc[omment]',
+  hbsearch_url : 'hbu[rl]',
+  hbsearch_url_tab : 'hbtu[rl]',
+  hbsearch_title : 'hbti[tle]',
+  hbsearch_title_tab : 'hbtti[tle]',
+};
+
+// :hb! url 等の bang(!) 付きで開いた場合の挙動。
+// 標準ははてブエントリーページを開く entryPage が設定されている。
+// 他に新規タブで開く openNewTab がある。
+// また、文字列ではなく自分で定義した関数をセットすることもできる。
+liberator.globalVariables.hBookmark_bangFunction = 'entryPage';
+
+// 検索時の wait(ms)
+liberator.globalVariables.hBookmark_search_interval = 1000;
+// 一度に検索する limit
+liberator.globalVariables.hBookmark_search_limit = 10;
+// 検索時の表示の最大件数。この件数に達するまで検索し続ける。
+liberator.globalVariables.hBookmark_search_max_limit = 100;
+
+EOF
+
+" open コマンドや tabopen コマンドのURL補完に、ブックマークの検索結果を追加
+set complete+=H
+

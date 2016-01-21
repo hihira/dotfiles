@@ -1,0 +1,16 @@
+alias cp='cp -i'
+alias ll="ls -alF --color"
+alias la='ls -alhAF'
+alias lv=less
+alias mv='mv -i'
+alias pd=pushd
+alias po=popd
+alias dirs='dirs -v'
+alias ps='ps uww'
+alias rm='rm -i'
+alias rr='command rm -rf'
+alias grep='grep --color=always'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias h100='history | tail -100'
+alias diff='diff -yW230'

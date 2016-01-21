@@ -1,0 +1,18 @@
+alias cp='cp -i'
+alias ll="ls -lrFG"
+alias la='ls -alhAGF'
+alias lv=less
+alias mv='mv -i'
+alias pd=pushd
+alias po=popd
+alias dirs='dirs -v'
+alias ps='ps -fU`id -nu`'
+alias rm='rm -i'
+alias rr='command rm -rf'
+alias grep='grep --color=always'
+alias h100='history | tail -100'
+alias diff='diff -yW230'
+alias lock='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+alias ぉｃｋ='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias awk='gawk'

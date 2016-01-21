@@ -1,0 +1,17 @@
+# 補完
+# bash_completionがないのでコメントアウト
+#if [ -f /usr/local/etc/bash_completion ] ; then
+#  source  /usr/local/etc/bash_completion
+#fi
+
+if [ "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock" ]; then
+    if [ ! -S $HOME/.ssh/auth_sock ]; then
+        \rm -f $HOME/.ssh/auth_sock
+        ln -fs $SSH_AUTH_SOCK $HOME/.ssh/auth_sock
+        export SSH_AUTH_SOCK=$HOME/.ssh/auth_sock
+    fi
+fi
+
+# ssh で 今まで入ったことのあるホスト名を補完
+complete -W "$(sed 's/[ ,].*$/ /' ~/.ssh/known_hosts | tr -d '\n')" ssh
+

@@ -1,0 +1,112 @@
+defscrollback 10000
+escape ^Aa
+
+defutf8 on
+defkanji utf8
+encoding utf8 utf8
+defencoding utf8
+
+# don't show startup message.
+startup_message off
+# enable visual vells
+vbell off
+
+autodetach on
+
+# enable background-color-erase setting.
+defbce "on"
+
+term xterm-256color
+
+# enable 256 color
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#termcapinfo  xterm|xterm-color|kterm|kterm-color 'hs:ts=\E]2;:fs=\007:ds=\E]0;screen\007'
+
+# don't resize terminal width when re-attached.
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+# mouse scrole
+altscreen on
+
+caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
+#hardstatus alwayslastline "%H | #%n %t | %w %= | %Y/%m/%d %c:%s"
+#hardstatus alwayslastline "%H | %-w%{=bu dr}[%n %t]%{-}%+w %= | %Y/%m/%d %c:%s"
+#hardstatus alwayslastline "%{=b wb}%H %{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%y/%m/%d %{=b wb}%c:%s"
+hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+
+markkeys h=^b:l=^f:$=^e:^d=^v
+
+### maping keys ###########################################
+# window re-numbering
+# override default `N'(number) mapping
+bind N colon 'number '
+
+##### switch focus to other region(like vi) #####
+# orverride default `k'(kill), `t'(time), `b'(break) mappings.
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+bind h focus left
+bind l focus right
+### continuous resize region
+# orverride default `r'(wrap) mapping.
+bind r eval 'command -c cresize'
+bind -c cresize j eval 'resize +1'  'command -c cresize'
+bind -c cresize k eval 'resize -1'  'command -c cresize'
+bind -c cresize h eval 'resize -v +1'  'command -c cresize'
+bind -c cresize l eval 'resize -v -1'  'command -c cresize'
+bind -c cresize J eval 'resize +10' 'command -c cresize'
+bind -c cresize K eval 'resize -10' 'command -c cresize'
+bind -c cresize = eval 'resize ='   'command -c cresize'
+bind -c cresize n eval 'resize min' 'command -c cresize'
+bind -c cresize x eval 'resize max' 'command -c cresize'
+
+##### trigger for layout sub-commands #####
+bind ^Y eval 'command -c layout' 'layout show'
+bind y  eval 'command -c layout' 'layout show'
+# create/remove layout
+bind -c layout c eval 'layout new'    'layout show'
+bind -c layout X eval 'layout remove' 'layout show'
+# change the current layout title or number
+bind -c layout A colon 'layout title '
+bind -c layout N colon 'layout number '
+# switch to the layout identified by number or title (not prefix of a title)
+bind -c layout \' eval 'layout select' 'layout show'
+# switch to other layout
+bind -c layout n eval 'layout next'     'layout show'
+bind -c layout p eval 'layout prev'     'layout show'
+bind -c layout 0 eval 'layout select 0' 'layout show'
+bind -c layout 1 eval 'layout select 1' 'layout show'
+bind -c layout 2 eval 'layout select 2' 'layout show'
+bind -c layout 3 eval 'layout select 3' 'layout show'
+bind -c layout 4 eval 'layout select 4' 'layout show'
+bind -c layout 5 eval 'layout select 5' 'layout show'
+bind -c layout 6 eval 'layout select 6' 'layout show'
+bind -c layout 7 eval 'layout select 7' 'layout show'
+bind -c layout 8 eval 'layout select 8' 'layout show'
+bind -c layout 9 eval 'layout select 9' 'layout show'
+# continuous switch to other layout
+bind -c layout ^N eval 'layout next' 'command -c layout' 'layout show'
+bind -c layout ^P eval 'layout prev' 'command -c layout' 'layout show'
+
+
+#bindkey "^?" backward-delete-char
+#bindkey "^H" backward-delete-char
+bindkey -k kb stuff ^H
+bind d setenv DISPLAY
+bind -c REGION 2 split
+bind -c REGION 1 only
+bind -c REGION 0 remove
+bind -c REGION o focus
+bind ^X command -c REGION
+bind x command -c REGION
+
+# list of all windows is displayed in the blank window(-b) for visual window selection.
+# override default `w'(windows) mapping.
+bind w  windowlist -b
+bind ^W windowlist -b -m # sorting by most-recentry-used list.
+
+# changes the windowlist format to suit caption/hardstatus
+windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,C-n:Down k,C-p:Up (C-)f:PageDown (C-)b:PageUp'
+windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='

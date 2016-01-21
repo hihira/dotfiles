@@ -1,0 +1,16 @@
+alias cp='cp -i'
+alias ll="ls -alrFG"
+alias lla="ls -alrFG"
+alias la='ls -lhAFG'
+alias lv=less
+alias mv='mv -i'
+alias pd=pushd
+alias po=popd
+alias dirs='dirs -v'
+alias ps='ps -fU`id -nu`'
+alias rm='rm -i'
+alias rr='command rm -rf'
+alias grep='grep --color=always'
+alias h100='history | tail -100'
+alias diff='diff -yW230'
+alias svn='LC_CTYPE=C svn'
