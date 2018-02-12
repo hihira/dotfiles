@@ -9,6 +9,7 @@ augroup filetypedetect
     au BufRead,BufNewFile .eslintrc set filetype=javascript
     au BufRead,BufNewFile *test.js set filetype=javascript.mocha
     au BufRead,BufNewFile *.md set filetype=mkd
+    au BufRead,BufNewFile *.sm set filetype=sm
 augroup END
 
 if filereadable(expand('~/git/dotfiles/yenv/vim/filetype.vim'))
