@@ -54,6 +54,8 @@ case "$-" in
     fi
     
     # User specific aliases and functions
+
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
     
     # git
     if [[ -f ~/.git-prompt.sh ]]; then
@@ -83,11 +85,14 @@ case "$-" in
     ### 履歴 ###
     export HISTCONTROL=ignoredups
     export HISTTIMEFORMAT='%y/%m/%d %H:%M:%S '
-    export HISTIGNORE="fg*:bg*:history*:cd*"
+    export HISTIGNORE="fg:bg:history*:cd*"
     # 入力履歴をログアウト時に保存する。
     export HISTFILE=~/.bash_history # 履歴をファイルに保存する
     export HISTSIZE=9999            # メモリ内の履歴の数
     export HISTFILESIZE=9999        # 保存される履歴の数
+    # 端末間での共有
+    export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+    shopt -u histappend             # 上記で.bash_historyに追記されるためシェルの追記機能をOFF
     
     # C-sによる画面停止の無効化
     stty stop undef
@@ -142,12 +147,12 @@ case "$-" in
     fi
 esac
 
-peco-select-history() {
-    declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
-    READLINE_LINE="$l"
-    READLINE_POINT=${#l}
-}
-bind -x '"\C-r": peco-select-history'
+#peco-select-history() {
+#    declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
+#    READLINE_LINE="$l"
+#    READLINE_POINT=${#l}
+#}
+#bind -x '"\C-r": peco-select-history'
 
 [ -z "$PS1" ] && return
 

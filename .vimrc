@@ -67,9 +67,9 @@ if filereadable(expand('~/.vimrc.unite'))
   source ~/.vimrc.unite
 endif
 
-if filereadable(expand('~/.vimrc.neocon'))
-  source ~/.vimrc.neocon
-endif
+"if filereadable(expand('~/.vimrc.neocon'))
+"  source ~/.vimrc.neocon
+"endif
 
 if filereadable(expand('~/.vimrc.shell'))
   source ~/.vimrc.shell
@@ -80,7 +80,7 @@ if filereadable(expand('~/.vimrc.local'))
 endif
 
 if !exists("g:quickrun_config")
-    let g:quickrun_config = {}
+  let g:quickrun_config = {}
 endif
 
 let g:quickrun_config['_'] = {

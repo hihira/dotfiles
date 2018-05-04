@@ -41,7 +41,7 @@ if has("lua")
   NeoBundle 'Shougo/neocomplete.vim'
   NeoBundle 'violetyk/neocomplete-php.vim'
 else
-  NeoBundle 'Shougo/neocomplcache'
+  "NeoBundle 'Shougo/neocomplcache'
 endif
 "NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/neosnippet'

@@ -11,8 +11,10 @@ cd ~/git/dotfiles
 
 ln -svni `pwd`/.bashrc ~/
 ln -svni `pwd`/.bashrc_alias_`uname` ~/
+ln -svni `pwd`/yenv/bash/.bashrc_yenv ~/
 ln -svni `pwd`/.bash_profile ~/
 ln -svni `pwd`/.vimrc ~/
+ln -svni `pwd`/.vimperatorrc ~/
 ln -svni `pwd`/.vimrc.bundle ~/
 ln -svni `pwd`/.vimrc.unite ~/
 ln -svni `pwd`/.vimrc.neocon ~/
@@ -27,7 +29,7 @@ mkdir ~/.vim/ ;                  ln -svni `pwd`/.vim/filetype.vim ~/.vim/
 mkdir ~/.vim/ftplugin ;          ln -svni `pwd`/.vim/ftplugin/*.vim ~/.vim/ftplugin/
 mkdir -p ~/.vim/after/ftplugin ; ln -svni `pwd`/.vim/after/ftplugin/*.vim ~/.vim/after/ftplugin/
 mkdir ~/.vim/syntax ;            ln -svni `pwd`/.vim/syntax/*.vim ~/.vim/syntax/
-                                 ln -svni `pwd`/yenv/syntax/*.vim ~/.vim/syntax/
+                                 ln -svni `pwd`/yenv/vim/syntax/*.vim ~/.vim/syntax/
 mkdir -p ~/var/vim/undo
 mkdir -p ~/var/vim/tmp
 
