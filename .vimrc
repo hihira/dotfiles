@@ -166,3 +166,9 @@ endfunction
 "let g:syntastic_auto_loc_list = 0
 "let g:syntastic_php_checkers = ['phpcs']
 "let g:syntastic_php_phpcs_args='--standard=psr2'
+
+" Change cursor shape in different modes for iTerm2
+" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"

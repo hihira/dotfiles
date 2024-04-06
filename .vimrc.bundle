@@ -61,6 +61,7 @@ NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'Lokaltog/vim-easymotion'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+NeoBundle 'posva/vim-vue'
 " vim-scripts repos
 NeoBundle 'Align'
 NeoBundle 'surround.vim'

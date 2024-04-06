@@ -8,7 +8,7 @@ augroup filetypedetect
     au BufRead,BufNewFile *.json set filetype=javascript
     au BufRead,BufNewFile .eslintrc set filetype=javascript
     au BufRead,BufNewFile *test.js set filetype=javascript.mocha
-    au BufRead,BufNewFile *.md set filetype=mkd
+    au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.sm set filetype=sm
 augroup END
 
