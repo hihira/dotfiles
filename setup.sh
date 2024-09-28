@@ -2,7 +2,7 @@
 
 type git || exit 1
 
-if [ ${BASH_SOURCE:-$0} != 'setup.sh' ]; then
+if [ ${BASH_SOURCE:-$0} != './setup.sh' ]; then
   mkdir ~/git/
   cd ~/git/
   git clone $GIT_REPOS
