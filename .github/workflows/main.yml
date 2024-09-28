@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ./setup.sh
+      - run: set -x; ./setup.sh
 
   Run-PSScriptAnalyzer-on-Windows:
     name: Run setup.sh on MacOS 14 Sonoma
@@ -21,8 +21,10 @@ jobs:
       - name: Run setup.sh with bash
         shell: bash
         run: |
+          set -x
           ./setup.sh
       - name: Run setup.sh with zsh
         shell: zsh {0}
         run: |
+          set -x
           ./setup.sh
