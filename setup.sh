@@ -20,10 +20,10 @@ ln -svni `pwd`/.vimrc.bundle ~/
 ln -svni `pwd`/.vimrc.unite ~/
 ln -svni `pwd`/.vimrc.neocon ~/
 ln -svni `pwd`/.inputrc ~/
-ln -svni `pwd`/.ssh/config ~/.ssh/config
 ln -svni `pwd`/.gitconfig ~/
 ln -svni `pwd`/.git-completion.bash ~/
 ln -svni `pwd`/.git-prompt.sh ~/
+mkdir -p ~/.ssh/ ;               ln -svni `pwd`/.ssh/config ~/.ssh/config
 mkdir ~/bin/ ;                   ln -svni `pwd`/bin/git_diff_wrapper.sh ~/bin/
 mkdir ~/.vim/ ;                  ln -svni `pwd`/.vim/colors ~/.vim/
 mkdir ~/.vim/ ;                  ln -svni `pwd`/.vim/filetype.vim ~/.vim/
