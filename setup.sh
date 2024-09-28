@@ -36,5 +36,5 @@ mkdir -p ~/var/vim/tmp
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
 if ! ack --version > /dev/null; then
-  curl https://beyondgrep.com/ack-2.12-single-file > ~/bin/ack && chmod 0755 ~/bin/ack
+  curl https://beyondgrep.com/ack-2.12-single-file > ~/bin/ack && chmod 755 ~/bin/ack
 fi
