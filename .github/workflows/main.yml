@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 jobs:
-  Run-npm-on-Ubuntu:
+  Run-setup-script-on-Ubuntu:
     name: Run setup.sh on Ubuntu
     runs-on: ubuntu-latest
     steps:
@@ -15,7 +15,7 @@ jobs:
           set -x
           source ./setup.sh
 
-  Run-PSScriptAnalyzer-on-Windows:
+  Run-setup-script-on-Mac:
     name: Run setup.sh on MacOS 14 Sonoma
     runs-on: macos-14
     steps:
@@ -24,9 +24,9 @@ jobs:
         shell: bash
         run: |
           set -x
-          source ./setup.sh
+          yes | source ./setup.sh
       - name: Run setup.sh with zsh
         shell: zsh {0}
         run: |
           set -x
-          source ./setup.sh
+          yes | source ./setup.sh
