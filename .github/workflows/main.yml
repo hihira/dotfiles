@@ -1,0 +1,28 @@
+name: Run setup.sh on different operating systems
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  Run-npm-on-Ubuntu:
+    name: Run setup.sh on Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./setup.sh
+
+  Run-PSScriptAnalyzer-on-Windows:
+    name: Run setup.sh on MacOS 14 Sonoma
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run setup.sh with bash
+        shell: bash
+        run: |
+          ./setup.sh
+      - name: Run setup.sh with zsh
+        shell: zsh {0}
+        run: |
+          ./setup.sh
