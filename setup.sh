@@ -25,8 +25,7 @@ ln -svni `pwd`/.git-completion.bash ~/
 ln -svni `pwd`/.git-prompt.sh ~/
 mkdir -p ~/.ssh/ ;               ln -svni `pwd`/.ssh/config ~/.ssh/config
 mkdir ~/bin/ ;                   ln -svni `pwd`/bin/git_diff_wrapper.sh ~/bin/
-mkdir ~/.vim/ ;                  ln -svni `pwd`/.vim/colors ~/.vim/
-mkdir ~/.vim/ ;                  ln -svni `pwd`/.vim/filetype.vim ~/.vim/
+mkdir ~/.vim/ ;                  ln -svni `pwd`/.vim/{colors,filetype.vim} ~/.vim/
 mkdir ~/.vim/ftplugin ;          ln -svni `pwd`/.vim/ftplugin/*.vim ~/.vim/ftplugin/
 mkdir -p ~/.vim/after/ftplugin ; ln -svni `pwd`/.vim/after/ftplugin/*.vim ~/.vim/after/ftplugin/
 mkdir ~/.vim/syntax ;            ln -svni `pwd`/.vim/syntax/*.vim ~/.vim/syntax/
