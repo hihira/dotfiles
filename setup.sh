@@ -38,4 +38,5 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 if ! ack --version > /dev/null 2>&1 ; then
   curl https://beyondgrep.com/ack-2.12-single-file > ~/bin/ack && ls -al ~/bin
   chmod 755 ~/bin/ack
+  ls -al ~/bin
 fi
