@@ -24,8 +24,9 @@ jobs:
         shell: bash
         run: |
           set -x
-          #yes | source ./setup.sh
-          for i in {1..10}; do echo y; done | source ./setup.sh
+          set +e
+          set +o pipefail
+          yes | source ./setup.sh
       - name: Run setup.sh with zsh
         shell: zsh {0}
         run: |
