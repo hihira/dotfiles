@@ -23,10 +23,8 @@ jobs:
       - name: Run setup.sh with bash
         shell: bash
         run: |
-          set -ex
-          trap '' PIPE
-          yes 2>/dev/null | source ./setup.sh
-          trap - PIPE
+          set -xo pipefail
+          yes | source ./setup.sh
       - name: Run setup.sh with zsh
         shell: zsh {0}
         run: |
