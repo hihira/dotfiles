@@ -23,7 +23,7 @@ jobs:
       - name: Run setup.sh with bash
         shell: bash
         run: |
-          set -x
+          set -ex
           trap '' PIPE
           yes 2>/dev/null | source ./setup.sh
           trap - PIPE
