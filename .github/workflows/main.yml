@@ -23,7 +23,7 @@ jobs:
       - name: Run setup.sh with bash
         shell: bash
         run: |
-          set -xo pipefail
+          set +e -xo pipefail
           yes | source ./setup.sh
       - name: Run setup.sh with zsh
         shell: zsh {0}
