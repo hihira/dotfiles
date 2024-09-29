@@ -3,12 +3,12 @@
 type git || exit 1
 
 if [ ${BASH_SOURCE:-$0} != './setup.sh' ]; then
+  GIT_REPOS="git@github.com:hihira/dotfiles.git"
   mkdir ~/git/
   cd ~/git/
   git clone $GIT_REPOS
   cd ~/git/dotfiles
 fi
-GIT_REPOS="git@github.com:hihira/dotfiles.git"
 
 ln -svni `pwd`/.bashrc ~/
 ln -svni `pwd`/.bashrc_alias_`uname` ~/
