@@ -15,8 +15,8 @@ jobs:
           set -x
           source ./setup.sh
 
-  Run-setup-script-on-Mac:
-    name: Run setup.sh on MacOS 14 Sonoma
+  Run-setup-script-with-Bash-on-Mac:
+    name: Run setup.sh with Bash on MacOS 14 Sonoma
     runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
@@ -24,9 +24,14 @@ jobs:
         shell: bash
         run: |
           set -x
-          set +e
-          set +o pipefail
-          yes | source ./setup.sh
+          set +e +o pipefail # ref. https://maku693.hatenablog.jp/entry/2021/01/08/220041
+          yes 2>/dev/null | source ./setup.sh
+
+  Run-setup-script-with-Zsh-on-Mac:
+    name: Run setup.sh with Zsh on MacOS 14 Sonoma
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
       - name: Run setup.sh with zsh
         shell: zsh {0}
         run: |
