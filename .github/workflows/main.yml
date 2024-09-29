@@ -24,7 +24,8 @@ jobs:
         shell: bash
         run: |
           set -x
-          yes 2>/dev/null | source ./setup.sh
+          #yes 2>/dev/null | source ./setup.sh
+          source ./setup.sh <(yes 2>/dev/null)
       - name: Run setup.sh with zsh
         shell: zsh {0}
         run: |
