@@ -24,8 +24,9 @@ jobs:
         shell: bash
         run: |
           set -x
-          #yes 2>/dev/null | source ./setup.sh
-          yes 2>/dev/null | source ./setup.sh | tee || if [[ $? -eq 141 ]]; then true; else exit $?; fi
+          trap '' PIPE
+          yes 2>/dev/null | source ./setup.sh
+          trap - PIPE
       - name: Run setup.sh with zsh
         shell: zsh {0}
         run: |
