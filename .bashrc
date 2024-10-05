@@ -55,7 +55,7 @@ case "$-" in
     
     # User specific aliases and functions
 
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+    [ -f ~/.fzf.bash ] && . ~/.fzf.bash
     
     # git
     if [[ -f ~/.git-prompt.sh ]]; then
@@ -98,8 +98,8 @@ case "$-" in
     stty stop undef
     
     # alias
-    if [ -f "$HOME/.bashrc_alias_`uname`" ]; then
-      . $HOME/.bashrc_alias_`uname`
+    if [ -f "$HOME/.bashrc_alias_$(uname)" ]; then
+      . "$HOME"/.bashrc_alias_$(uname)
       echo 'loaded ~/.bashrc_alias'
     fi
     
@@ -110,11 +110,11 @@ case "$-" in
     # ack
     # BSD and Linux
     if ! ack --version > /dev/null; then
-      if [ `uname` = 'FreeBSD' ]; then
+      if [ $(uname) = 'FreeBSD' ]; then
         mkdir -p ~/bin
         curl http://beyondgrep.com/ack-1.96-single-file > ~/bin/ack && chmod 0755 ~/bin/ack
       fi
-      if [ `uname` = 'Linux' ]; then
+      if [ $(uname) = 'Linux' ]; then
         mkdir -p ~/bin
         curl http://beyondgrep.com/ack-2.12-single-file > ~/bin/ack && chmod 0755 ~/bin/ack
       fi
@@ -122,7 +122,7 @@ case "$-" in
 
     # jq
     if ! which jq > /dev/null; then
-      if [ `uname` = 'Linux' ]; then
+      if [ $(uname) = 'Linux' ]; then
         mkdir -p ~/bin
         wget -O ~/bin/jq http://stedolan.github.io/jq/download/linux64/jq && chmod 0755 ~/bin/jq
       fi
@@ -130,9 +130,9 @@ case "$-" in
 
     # bash completion
     if ! [ -f /etc/bash_completion ]; then
-      if [ `uname` = 'Linux' ]; then
-        distribution=`get_os_distribution`
-        if [ $distribution = "redhat" ]; then
+      if [ $(uname) = 'Linux' ]; then
+        distribution=$(get_os_distribution)
+        if [ "$distribution" = "redhat" ]; then
           wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm &&
           sudo rpm -ivh ./epel-release-6-8.noarch.rpm &&
           sudo yum install bash-completion
@@ -142,7 +142,7 @@ case "$-" in
     
     # local settings
     if [ -f "$HOME/.bashrc_local" ]; then
-      . $HOME/.bashrc_local
+      . "$HOME"/.bashrc_local
       echo 'loaded ~/.bashrc_local'
     fi
 esac

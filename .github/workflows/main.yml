@@ -15,6 +15,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
+        with:
+          ignore_names: >-
+            .bashrc
+            .bash_profile
 
   Run-setup-script-on-Ubuntu:
     name: Run setup.sh on Ubuntu

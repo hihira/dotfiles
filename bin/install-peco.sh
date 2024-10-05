@@ -8,13 +8,13 @@ latest=$(
     awk -F'/' '/^Location:/{print $NF}'
 )
 
-: ${latest:?}
+: "${latest:?}"
 
-mkdir -p $HOME/bin
+mkdir -p "$HOME"/bin
 
 curl -fsSL "https://github.com/peco/peco/releases/download/${latest}/peco_linux_amd64.tar.gz" |
-  tar -xz --to-stdout peco_linux_amd64/peco > $HOME/bin/peco
+  tar -xz --to-stdout peco_linux_amd64/peco > "$HOME"/bin/peco
 
-chmod +x $HOME/bin/peco
+chmod +x "$HOME"/bin/peco
 
-$HOME/bin/peco --version
+"$HOME"/bin/peco --version
