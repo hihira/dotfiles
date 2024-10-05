@@ -4,13 +4,24 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  schedule:
+    - cron: '12 3 * * 5'
 
 jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+
   Run-setup-script-on-Ubuntu:
     name: Run setup.sh on Ubuntu
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Run setup.sh
       - run: |
           set -x
           source ./setup.sh
@@ -33,6 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run setup.sh with zsh
+        # ref. https://zenn.dev/shundeveloper/articles/2fdf4bf627072f
         shell: zsh {0}
         run: |
           set -x
