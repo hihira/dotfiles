@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run setup.sh
-      - run: |
+        run: |
           set -x
           source ./setup.sh
 
