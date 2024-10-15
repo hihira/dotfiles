@@ -27,8 +27,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run setup.sh
         run: |
+          echo $SHELL
           set -x
-          source ./setup.sh
+          yes 2>/dev/null | source ./setup.sh
 
   Run-setup-script-with-Bash-on-Mac:
     name: Run setup.sh with Bash on MacOS 14 Sonoma
