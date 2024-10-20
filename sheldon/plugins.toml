@@ -1,0 +1,83 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+shell = "zsh"
+
+[plugins]
+
+# For example:
+#
+# [plugins.base16]
+# github = "chriskempson/base16-shell"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+# compinit の defer も必要になる
+# 頑張るコストに見合わない
+#apply = ["defer"]
+
+[plugins."prezto:modules:history"]
+github = "sorin-ionescu/prezto"
+dir = "modules/history"
+
+[plugins."prezto:modules:history".hooks]
+pre = "zstyle ':prezto:module:history' savehist 100000"
+
+[plugins."prezto:modules:directory"]
+github = "sorin-ionescu/prezto"
+dir = "modules/directory"
+
+[plugins."prezto:modules:directory".hooks]
+pre = "zstyle ':prezto:module:directory:alias' skip 'yes'"
+
+[plugins."git-prompt.sh"]
+local = "/Library/Developer/CommandLineTools/usr/share/git-core"
+use = ["git-prompt.sh"]
+apply = ["defer"]
+
+[plugins."git-prompt.sh".hooks]
+pre = """
+GIT_PS1_SHOWDIRTYSTATE=yes
+GIT_PS1_SHOWSTASHSTATE=yes
+GIT_PS1_SHOWUNTRACKEDFILES=yes
+GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_STATESEPARATOR=' '
+#GIT_PS1_COMPRESSSPARSESTATE=?
+#GIT_PS1_OMITSPARSESTATE=
+GIT_PS1_SHOWCONFLICTSTATE=yes
+GIT_PS1_DESCRIBE_STYLE=branch
+GIT_PS1_SHOWCOLORHINTS=yes
+GIT_PS1_HIDE_IF_PWD_IGNORED=yes
+"""
+post = """
+precmd () {
+  zsh-defer __git_ps1 "%F{yellow}%~%f" " 
+%(?.%F{magenta}.%F{red})%#%f " " (git:%s)"
+  RPROMPT=''
+}
+update-rprompt-accpet-line() {
+  RPROMPT="[%F{green}%n%f@%F{magenta}%m%f %{%B%F{cyan}%}%y%{%f%b%}]"
+  zle .reset-prompt
+  zle .accept-line
+}
+zle -N accept-line update-rprompt-accpet-line
+"""
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
