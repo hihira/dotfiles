@@ -68,6 +68,5 @@ jobs:
           mkdir -p ~/.config/sheldon
           ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
           eval "$(~/.local/bin/sheldon source)"
-          cat .local/share/sheldon/plugins.lock
-          echo $PS1
-          git status
+          cat ~/.local/share/sheldon/plugins.lock
+          zstyle
