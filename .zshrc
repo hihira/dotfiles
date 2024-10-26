@@ -1,17 +1,24 @@
 eval "$(sheldon source)"
 
-alias ll='ls -alFG'
+#alias ll='ls -alFG'
+#export LSCOLORS=gxfxcxdxbxegedabagacad
 
-export LSCOLORS=gxfxcxdxbxegedabagacad
+alias ll='ls -alF --color'
 
 ### https://docs.brew.sh/Shell-Completion
 ### START
 if type brew &>/dev/null
 then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  PREFIX_BREW=$(brew --prefix)
 
   autoload -Uz compinit
   compinit
+
+  if [ -d "${PREFIX_BREW}/opt/coreutils/libexec/gnubin" ]; then
+    PATH="${PREFIX_BREW}/opt/coreutils/libexec/gnubin:$PATH"
+    eval "$(dircolors)"
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+  fi
 fi
 ### END
 
