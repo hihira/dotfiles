@@ -19,6 +19,7 @@ jobs:
           ignore_names: >-
             .bashrc
             .bash_profile
+            .zshrc
 
   Run-setup-script-on-Ubuntu:
     name: Run setup.sh on Ubuntu
