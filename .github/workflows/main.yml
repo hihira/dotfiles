@@ -64,7 +64,7 @@ jobs:
       - name: Fetch sheldon then run
         shell: zsh {0}
         run: |
-          curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to "$(pwd)/"
+          curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
           set -x
           mkdir -p ~/.config/sheldon
           ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
