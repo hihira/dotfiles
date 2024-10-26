@@ -68,4 +68,4 @@ jobs:
           curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
           mkdir -p ~/.config/sheldon
           ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
-          eval "$(./sheldon source)"
+          eval "$(~/.local/bin/sheldon source)"
