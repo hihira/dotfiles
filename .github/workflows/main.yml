@@ -65,6 +65,7 @@ jobs:
         shell: zsh {0}
         run: |
           curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to "$(pwd)/"
+          set -x
           mkdir -p ~/.config/sheldon
           ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
           eval "$(./sheldon source)"
