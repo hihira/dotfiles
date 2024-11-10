@@ -1,10 +1,5 @@
 # .bash_profile
 
-# screen settings
-if [ -f ~/.bash_profile_screen ]; then
-  . ~/.bash_profile_screen
-fi
-
 export PATH="$HOME/miniconda3/bin:$HOME/.nodebrew/current/bin:$HOME/bin:$HOME/local/bin:$HOME/.composer/vendor/bin:$PATH"
 
 # Get the aliases and functions
