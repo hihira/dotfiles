@@ -68,5 +68,7 @@ jobs:
           mkdir -p ~/.config/sheldon
           ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
           eval "$(~/.local/bin/sheldon source)"
-          tail -n+1 ~/.local/share/sheldon/plugins.lock
+          if ! tail -n+1 ~/.local/share/sheldon/plugins.lock ; then
+            exit 1
+          fi
           zstyle
