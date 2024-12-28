@@ -5,17 +5,18 @@ eval "$(sheldon source)"
 
 alias ll='ls -alF --color'
 
+# enable comment on command line mode
+setopt interactivecomments
+
 ### https://docs.brew.sh/Shell-Completion
 ### START
 if type brew &>/dev/null
 then
-  PREFIX_BREW=$(brew --prefix)
-
   autoload -Uz compinit
   compinit
 
-  if [ -d "${PREFIX_BREW}/opt/coreutils/libexec/gnubin" ]; then
-    PATH="${PREFIX_BREW}/opt/coreutils/libexec/gnubin:$PATH"
+  if [ -d "${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin" ]; then
+    PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
     eval "$(dircolors)"
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
   fi
