@@ -15,6 +15,3 @@ ln -svni "$(pwd)"/.git-prompt.sh ~/
 mkdir ~/.vim/ ;         ln -svni "$(pwd)"/.vim/colors ~/.vim/
 mkdir ~/.vim/ftplugin ; ln -svni "$(pwd)"/.vim/ftplugin/*.vim ~/.vim/ftplugin/
 mkdir ~/.vim/syntax ;   ln -svni "$(pwd)"/.vim/syntax/*.vim ~/.vim/syntax/
-
-mkdir -p ~/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim

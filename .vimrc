@@ -1,8 +1,11 @@
 scriptencoding utf-8
 
+" vim-plug setup
+call plug#begin('~/.vim/plugged')
 if filereadable(expand('~/.vimrc.bundle'))
   source ~/.vimrc.bundle
 endif
+call plug#end()
 
 filetype plugin indent on     " Required!
 
@@ -33,7 +36,7 @@ set laststatus=2
 "256色
 set t_Co=256
 set background=dark
-colorscheme hybrid
+"colorscheme hybrid
 
 "タブページの設定 >= v7
 "いつタブページのラベルを表示するかを指定する
@@ -45,8 +48,8 @@ set showtabline=1
 "コマンド入力時にTabを押すと補完メニューを表示する
 set wildmenu
 
-set undodir=~/var/vim/undo
-set backupdir=~/var/vim/tmp
+"set undodir=~/var/vim/undo
+"set backupdir=~/var/vim/tmp
 
 " Disable netrw.vim. Use vimfiler.
 let g:loaded_netrwPlugin = 1
@@ -66,10 +69,6 @@ endif
 if filereadable(expand('~/.vimrc.unite'))
   source ~/.vimrc.unite
 endif
-
-"if filereadable(expand('~/.vimrc.neocon'))
-"  source ~/.vimrc.neocon
-"endif
 
 if filereadable(expand('~/.vimrc.shell'))
   source ~/.vimrc.shell
@@ -128,7 +127,6 @@ endfunction
 function! MyFilename()
   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
-        \  &ft == 'unite' ? unite#get_status_string() : 
         \  &ft == 'vimshell' ? vimshell#get_status_string() :
         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
@@ -172,3 +170,8 @@ endfunction
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" fzf key mappings
+nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-h> :History<CR>

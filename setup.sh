@@ -33,7 +33,7 @@ mkdir ~/.vim/syntax ;            ln -svni "$(pwd)"/.vim/syntax/*.vim ~/.vim/synt
 mkdir -p ~/var/vim/undo
 mkdir -p ~/var/vim/tmp
 
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if ! ack --version > /dev/null 2>&1 ; then
   curl https://beyondgrep.com/ack-2.12-single-file > ~/bin/ack && chmod 755 ~/bin/ack
