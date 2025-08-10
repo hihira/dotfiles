@@ -1,37 +1,28 @@
 " vim-plug plugin list
 " Make sure you use single quotes
 
-"let g:make = 'gmake'
-"if system('uname -o') =~ '^GNU/'
-"        let g:make = 'make'
-"endif
-"Plug 'Shougo/vimproc.vim', { 'do': g:make }
+Plug 'vim-scripts/DrawIt'
+Plug 'vim-scripts/Align'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+
+Plug 'itchyny/lightline.vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Obsolete plugins, commented out
-" Plug 'Shougo/unite.vim'
-" Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 "Plug 'Shougo/vimfiler'
 "Plug 'Shougo/vimshell'
+"Plug 'Shougo/vimproc.vim', { 'do': g:make }
 "Plug 'Shougo/neosnippet'
 "Plug 'Shougo/neosnippet-snippets'
-"Plug 'tpope/vim-fugitive'
-
-" Plugins that depend on unite.vim, commented out
-" Plug 'Shougo/unite-outline'
-" Plug 'tsukkee/unite-tag'
-" Plug 'ujihisa/unite-colorscheme'
-" Plug 'tacroe/unite-mark'
-" Plug 'sgur/unite-git_grep'
-
 "Plug 'mattn/emmet-vim'
 "Plug 'thinca/vim-quickrun'
 "Plug 'osyo-manga/shabadou.vim'
-"Plug 'itchyny/lightline.vim'
 "Plug 'posva/vim-vue'
-"Plug 'tpope/vim-surround'
-
-Plug 'vim-scripts/DrawIt'
-Plug 'vim-scripts/Align'
 
 " scheme
 "Plug 'nanotech/jellybeans.vim'
@@ -43,6 +34,3 @@ Plug 'vim-scripts/Align'
 "Plug 'vim-scripts/Wombat'
 "Plug 'tomasr/molokai'
 "Plug 'vim-scripts/rdark'
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'

@@ -10,19 +10,15 @@ if [ "${BASH_SOURCE:-$0}" != './setup.sh' ]; then
   cd ~/git/dotfiles || exit
 fi
 
-ln -svni "$(pwd)"/.bashrc ~/
+ln -svni "$(pwd)"/.zshrc ~/
 ln -svni "$(pwd)"/.bashrc_alias_"$(uname)" ~/
 ln -svni "$(pwd)"/yenv/bash/.bashrc_yenv ~/
-ln -svni "$(pwd)"/.bash_profile ~/
+ln -svni "$(pwd)"/.dir_colors ~/
 ln -svni "$(pwd)"/.vimrc ~/
-ln -svni "$(pwd)"/.vimperatorrc ~/
 ln -svni "$(pwd)"/.vimrc.bundle ~/
-ln -svni "$(pwd)"/.vimrc.unite ~/
-ln -svni "$(pwd)"/.vimrc.neocon ~/
 ln -svni "$(pwd)"/.inputrc ~/
 ln -svni "$(pwd)"/.gitconfig ~/
-ln -svni "$(pwd)"/.git-completion.bash ~/
-ln -svni "$(pwd)"/.git-prompt.sh ~/
+ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
 mkdir -p ~/.ssh/ ;               ln -svni "$(pwd)"/.ssh/config ~/.ssh/config
 mkdir ~/bin/ ;                   ln -svni "$(pwd)"/bin/git_diff_wrapper.sh ~/bin/
 mkdir ~/.vim/ ;                  ln -svni "$(pwd)"/.vim/{colors,filetype.vim} ~/.vim/

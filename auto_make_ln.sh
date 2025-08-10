@@ -5,8 +5,6 @@ ln -svni "$(pwd)"/.bashrc_alias_"$(uname)" ~/
 ln -svni "$(pwd)"/.bash_profile ~/
 ln -svni "$(pwd)"/.vimrc ~/
 ln -svni "$(pwd)"/.vimrc.bundle ~/
-ln -svni "$(pwd)"/.vimrc.unite ~/
-ln -svni "$(pwd)"/.vimrc.neocon ~/
 ln -svni "$(pwd)"/.inputrc ~/
 ln -svni "$(pwd)"/.ssh/config ~/.ssh/config
 ln -svni "$(pwd)"/.gitconfig ~/
