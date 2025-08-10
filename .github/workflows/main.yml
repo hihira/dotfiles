@@ -72,3 +72,33 @@ jobs:
             exit 1
           fi
           zstyle
+
+  vim-startup-test:
+    name: Vim Startup Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vim
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y vim
+
+      - name: Run setup.sh to install plugins and config
+        run: yes 2>/dev/null | source ./setup.sh
+
+      - name: Run Vim startup test
+        run: vim -u ~/.vimrc --headless +'echo "Vim startup successful!"' +qall
+
+      - name: Dump plugin versions on failure
+        if: failure()
+        run: |
+          echo "::group::Dumping Vim plugin versions"
+          for dir in ~/.vim/plugged/*; do
+            if [ -d "$dir/.git" ]; then
+              plugin_name=$(basename "$dir")
+              echo "--- $plugin_name ---"
+              (cd "$dir" && git log -1 --pretty=format:"%h | %s (%cr)")
+            fi
+          done
+          echo "::endgroup::"
