@@ -18,7 +18,7 @@ ln -svni "$(pwd)"/.vimrc ~/
 ln -svni "$(pwd)"/.vimrc.bundle ~/
 ln -svni "$(pwd)"/.inputrc ~/
 ln -svni "$(pwd)"/.gitconfig ~/
-ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
+mkdir -p ~/.config/sheldon/ ;    ln -svni "$(pwd)"/sheldon/plugins.toml ~/.config/sheldon/
 mkdir -p ~/.ssh/ ;               ln -svni "$(pwd)"/.ssh/config ~/.ssh/config
 mkdir ~/bin/ ;                   ln -svni "$(pwd)"/bin/git_diff_wrapper.sh ~/bin/
 mkdir ~/.vim/ ;                  ln -svni "$(pwd)"/.vim/{colors,filetype.vim} ~/.vim/
