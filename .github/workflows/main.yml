@@ -87,6 +87,15 @@ jobs:
       - name: Run setup.sh to install plugins and config
         run: yes 2>/dev/null | source ./setup.sh
 
+      - name: Debug Vim Installation
+        run: |
+          echo "--- All vim executables in PATH ---"
+          which -a vim
+          echo "--- vim-nox package contents ---"
+          dpkg -L vim-nox
+          echo "--- Full vim --version output ---"
+          vim --version
+
       - name: Run Vim startup test
         run: vim -u ~/.vimrc --headless +'echo "Vim startup successful!"' +qall
 
