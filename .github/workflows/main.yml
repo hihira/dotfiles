@@ -94,10 +94,10 @@ jobs:
           echo "--- vim-nox package contents ---"
           dpkg -L vim-nox
           echo "--- Full vim --version output ---"
-          vim --version
+          /usr/bin/vim.nox --version
 
       - name: Run Vim startup test
-        run: vim -u ~/.vimrc --headless +'echo "Vim startup successful!"' +qall
+        run: /usr/bin/vim.nox -u ~/.vimrc --headless +'echo "Vim startup successful!"' +qall
 
       - name: Dump plugin versions on failure
         if: failure()
