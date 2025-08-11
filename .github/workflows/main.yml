@@ -82,6 +82,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+      - name: Upgrade pip and install build tools
+        run: python -m pip install --upgrade pip setuptools wheel
       - name: Install vint
         run: pip install vim-vint
       - name: Run vint
