@@ -34,8 +34,8 @@ jobs:
           yes 2>/dev/null | source ./setup.sh
 
   Run-setup-script-with-Bash-on-Mac:
-    name: Run setup.sh with Bash on MacOS 14 Sonoma
-    runs-on: macos-14
+    name: Run setup.sh with Bash on MacOS 15 Sequoia
+    runs-on: macos-15-arm64
     steps:
       - uses: actions/checkout@v4
       - name: Run setup.sh with bash
@@ -46,8 +46,8 @@ jobs:
           yes 2>/dev/null | source ./setup.sh
 
   Run-setup-script-with-Zsh-on-Mac:
-    name: Run setup.sh with Zsh on MacOS 14 Sonoma
-    runs-on: macos-14
+    name: Run setup.sh with Zsh on MacOS 15 Sequoia
+    runs-on: macos-15-arm64
     steps:
       - uses: actions/checkout@v4
       - name: Run setup.sh with zsh
@@ -58,8 +58,8 @@ jobs:
           yes 2>/dev/null | source ./setup.sh
 
   Run-sheldon-with-Zsh-on-Mac:
-    name: Run sheldon with Zsh on MacOS 14 Sonoma
-    runs-on: macos-14
+    name: Run sheldon with Zsh on MacOS 15 Sequoia
+    runs-on: macos-15-arm64
     steps:
       - uses: actions/checkout@v4
       - name: Fetch sheldon then run
