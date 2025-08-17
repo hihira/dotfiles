@@ -1,5 +1,6 @@
 name: Run setup.sh on different operating systems
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
   pull_request:
