@@ -68,11 +68,11 @@ GIT_PS1_HIDE_IF_PWD_IGNORED=yes
 post = """
 precmd () {
   zsh-defer __git_ps1 "%F{yellow}%~%f" " 
-%(?.%F{magenta}.%F{red})%#%f " " (git:%s)"
+%(?.%F{magenta}.%F{red})%#%f " " \ueb00 %s"
   RPROMPT=''
 }
 update-rprompt-accpet-line() {
-  RPROMPT="[%F{green}%n%f@%F{magenta}%m%f %{%B%F{cyan}%}%y%{%f%b%}]"
+  RPROMPT="%F{green}%n%f\ue0bb%F{magenta}%!%f\ue0bb%{%B%F{cyan}%}%y%{%f%b%}"
   zle .reset-prompt
   zle .accept-line
 }

@@ -23,6 +23,9 @@
 	name = hihira
 	email = hihiranomail@gmail.com
 [diff]
-	external = git_diff_wrapper.sh
+#	external = git_diff_wrapper.sh
+	tool = vimdiff
 [pager]
 	diff = 
+[difftool]
+	prompt = false
