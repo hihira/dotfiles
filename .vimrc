@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding utf-8
 
 " vim-plug setup
@@ -7,7 +8,6 @@ if filereadable(expand('~/.vimrc.bundle'))
 endif
 call plug#end()
 
-set encoding=utf-8
 set fileencoding=utf8
 set fileencodings=ucs-bom,utf8,euc-jp
 
@@ -72,7 +72,7 @@ let $VIM_CACHE_DIR = expand('~/.cache/vim')
 if has('persistent_undo')
   set undofile
   if !isdirectory($VIM_CACHE_DIR.'/undo')
-    call mkdir($VIM_CACHE_DIR.'/undo', "p")
+    call mkdir($VIM_CACHE_DIR.'/undo', 'p')
   endif
   set undodir=$VIM_CACHE_DIR/undo
 endif
@@ -89,7 +89,7 @@ if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
-if !exists("g:quickrun_config")
+if !exists('g:quickrun_config')
   let g:quickrun_config = {}
 endif
 
