@@ -89,3 +89,23 @@ jobs:
         run: pip install vim-vint
       - name: Run vint
         run: vint .vimrc .vimrc.bundle .vim/
+
+      - name: Notify Discord (success)
+        if: success()
+        uses: tsg-bot/action-discord-notifier@v1.4.0
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          message: ':white_check_mark: Vint linting succeeded on `${{ github.ref }}`'
+          title: '${{ github.repository }}'
+          url: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+          color: '0x00ff00'
+
+      - name: Notify Discord (failure)
+        if: failure()
+        uses: tsg-bot/action-discord-notifier@v1.4.0
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          message: ':x: Vint linting failed on `${{ github.ref }}`'
+          title: '${{ github.repository }}'
+          url: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+          color: '0xff0000'
