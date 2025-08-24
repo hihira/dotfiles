@@ -35,7 +35,7 @@ jobs:
 
   Run-setup-script-with-Bash-on-Mac:
     name: Run setup.sh with Bash on MacOS 15 Sequoia
-    runs-on: macos-15-arm64
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - name: Run setup.sh with bash
@@ -47,7 +47,7 @@ jobs:
 
   Run-setup-script-with-Zsh-on-Mac:
     name: Run setup.sh with Zsh on MacOS 15 Sequoia
-    runs-on: macos-15-arm64
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - name: Run setup.sh with zsh
@@ -59,7 +59,7 @@ jobs:
 
   Run-sheldon-with-Zsh-on-Mac:
     name: Run sheldon with Zsh on MacOS 15 Sequoia
-    runs-on: macos-15-arm64
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - name: Fetch sheldon then run
