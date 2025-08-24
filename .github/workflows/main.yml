@@ -90,22 +90,9 @@ jobs:
       - name: Run vint
         run: vint .vimrc .vimrc.bundle .vim/
 
-      - name: Notify Discord (success)
-        if: success()
-        uses: avast/action-discord@v1
+      - name: Notify status to Discord
+        uses: sarisia/actions-status-discord@v1
+        if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          message: ":white_check_mark: Vint linting succeeded on `${{ github.ref }}`"
-          title: "${{ github.repository }}"
-          url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          color: "0x00ff00"
-
-      - name: Notify Discord (failure)
-        if: failure()
-        uses: avast/action-discord@v1
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          message: ":x: Vint linting failed on `${{ github.ref }}`"
-          title: "${{ github.repository }}"
-          url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          color: "0xff0000"
+          title: "Vint Linting"
