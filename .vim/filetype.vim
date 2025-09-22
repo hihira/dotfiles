@@ -10,6 +10,7 @@ augroup filetypedetect
     au BufRead,BufNewFile *test.js set filetype=javascript.mocha
     au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.sm set filetype=sm
+    au BufRead,BufNewFile *.go set filetype=go
 augroup END
 
 if filereadable(expand('~/git/dotfiles/yenv/vim/filetype.vim'))
