@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 if exists('b:did_ftplugin')
   finish
 endif
@@ -10,5 +12,5 @@ setlocal foldmethod=syntax
 
 augroup go_fmt
   autocmd!
-  autocmd BufWritePre *.go :silent! execute '%!goimports'
+  autocmd BufWritePre *.go :silent! execute '%!gofmt'
 augroup END
