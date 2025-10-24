@@ -7,7 +7,6 @@ if filereadable(expand('~/.vimrc.bundle'))
 endif
 call plug#end()
 
-set encoding=utf-8
 set fileencoding=utf8
 set fileencodings=ucs-bom,utf8,euc-jp
 
