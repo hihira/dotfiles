@@ -1,4 +1,5 @@
 set encoding=utf-8
+scriptencoding utf-8
 
 " vim-plug setup
 call plug#begin('~/.vim/plugged')
