@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding utf-8
 
 if exists('b:did_ftplugin')
