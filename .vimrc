@@ -1,5 +1,8 @@
+" vint: -ProhibitEncodingOptionAfterScriptEncoding
 set encoding=utf-8
 scriptencoding utf-8
+" vint: +ProhibitEncodingOptionAfterScriptEncoding
+" ref. https://github.com/Vimjas/vint/issues/363
 
 " vim-plug setup
 call plug#begin('~/.vim/plugged')
