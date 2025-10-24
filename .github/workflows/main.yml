@@ -90,7 +90,7 @@ jobs:
       - name: Install vint
         run: pip install vim-vint
       - name: Run vint
-        run: vint .vimrc .vimrc.bundle .vim/
+        run: vint --verbose .vimrc .vimrc.bundle .vim/
 
       - name: Notify status to Discord
         uses: sarisia/actions-status-discord@v1
